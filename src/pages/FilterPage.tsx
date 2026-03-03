@@ -57,9 +57,7 @@ export default function FilterPage() {
 
   return (
     <div className="min-h-screen flex bg-white">
-      {/* Sidebar */}
       <div className="w-64 shrink-0 border-r border-surface-200 flex flex-col bg-[#F9FAFC]">
-        {/* Logo inside sidebar */}
         <div className="px-6 py-4">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
@@ -71,7 +69,6 @@ export default function FilterPage() {
           </div>
         </div>
 
-        {/* Filter controls */}
         <FilterSidebar
           provinces={provinces}
           regencies={regencies}
@@ -86,9 +83,7 @@ export default function FilterPage() {
         />
       </div>
 
-      {/* Main content area */}
       <div className="flex-1 flex flex-col">
-        {/* Breadcrumb header */}
         <header className="border-b border-surface-200 px-6 py-6">
           <Breadcrumb
             selectedProvince={selectedProvince}
@@ -97,7 +92,6 @@ export default function FilterPage() {
           />
         </header>
 
-        {/* Content */}
         <RegionContent
           provinces={provinces}
           selectedProvince={selectedProvince}

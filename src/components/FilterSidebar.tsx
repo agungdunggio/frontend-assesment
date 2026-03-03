@@ -68,7 +68,6 @@ export default function FilterSidebar({
         className="mb-6"
       />
 
-      {/* Reset */}
       <button
         onClick={onReset}
         className="w-full py-2.5 border border-surface-200 rounded-lg text-sm font-medium text-surface-600 hover:bg-surface-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
@@ -81,8 +80,6 @@ export default function FilterSidebar({
     </div>
   );
 }
-
-/* ── Icons ──────────────────────────────── */
 
 function GridIcon() {
   return (
