@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# Frontend Assessment — Filter Wilayah Indonesia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikasi web untuk menjelajahi dan memfilter data wilayah Indonesia (Provinsi, Kota/Kabupaten, dan Kecamatan) secara hierarkis.
 
-Currently, two official plugins are available:
+## Tentang Aplikasi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplikasi ini menampilkan data wilayah Indonesia dengan fitur:
 
-## React Compiler
+- **Filter bertingkat** — Pilih Provinsi → Kota/Kabupaten → Kecamatan secara berurutan melalui sidebar.
+- **Breadcrumb navigasi** — Menunjukkan lokasi wilayah yang sedang dipilih.
+- **Tampilan konten dinamis** — Menampilkan detail wilayah yang dipilih di area utama.
+- **Reset filter** — Tombol untuk menghapus semua filter dan kembali ke tampilan awal (seluruh provinsi).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **React 19** + **TypeScript**
+- **Vite** — Build tool & dev server
+- **React Router DOM** — Routing & data loader
+- **Tailwind CSS 4** — Styling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Menjalankan Aplikasi
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Install dependencies
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Jalankan dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Struktur Proyek
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/       # Komponen UI (FilterSidebar, Breadcrumb, Combobox, RegionContent)
+├── data/             # Tipe data & interface (Province, Regency, District)
+├── pages/            # Halaman utama (FilterPage)
+├── router.tsx        # Konfigurasi routing & data loader
+├── main.tsx          # Entry point
+└── index.css         # Styling global
 ```
